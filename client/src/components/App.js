@@ -12,19 +12,19 @@ class App extends Component {
   render() {
     return (
       <AuthProvider>
-      <Provider store={store}>
-        <Router>
-          <div>
-            {/* public routes */}
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={Register} />
+        <Provider store={store}>
+          <Router>
+            <div>
+              {/* public routes */}
+              <Route path="/login" component={Login} />
+              <Route path="/register" component={Register} />
 
-            {/* private routes */}
-            <AuthRoute path="/" exact component={Chat} />
-          </div>
-        </Router>
-      </Provider>
-    </AuthProvider>
+              {/* private routes */}
+              <AuthRoute path="/" exact component={Chat} />
+            </div>
+          </Router>
+        </Provider>
+      </AuthProvider>
     )
   }
 }

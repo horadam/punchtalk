@@ -35,3 +35,71 @@ html {
     font-family: "Roboto";
     font-weight: lighter;
   }
+
+  .mainChatRoom {
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .mainChatRoom div {
+    align-items: stretch;
+  }
+
+  .channelList, .userList {
+    width: 200px;
+    background-color: rgb(194, 188, 188);
+  }
+
+  .channelList li {
+    color: white;
+  }
+
+  .chatArea {
+    flex-grow: 1;
+    min-width: 600px;
+    position: relative;
+  }
+
+    .messages {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 60px;
+      overflow: auto;
+      padding: 15px;
+    }
+
+    .inputArea {
+      position: absolute;
+      height: 60px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .theInput {
+      width: 95%;
+      padding: 8px;
+      display: block;
+      margin: auto;
+    }
+
+    .messageUserName {
+      font-weight: bold;
+    }
+
+    .messageColon {
+      padding: 0 10px;
+    }
+
+    .messageTimestamp {
+      display: block;
+      color: rgb(197, 193, 193);
+      font-style: italic;
+      font-size: 12px;
+    }

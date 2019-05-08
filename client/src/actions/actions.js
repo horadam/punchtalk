@@ -1,28 +1,31 @@
 import io from "socket.io-client"
 import store from '../store'
 
-const socket = io.connect("http://10.68.0.212:3001")
-console.log(socket)
+let socket = null
 
-export function send(text) {
-    const username = store.getState().username
-    socket.emit("new message", {
-        text: text,
-        username: username
-    })
+export function connect() {
+ socket = io.connect("http://10.68.0.212:3001")
+
+ socket.on('new message', (message) => {
+     addMessage(message)
+ })
 }
 
-export function createUsername(username) {
-    store.dispatch({
-        type: 'SET_USERNAME',
-        payload: username
-    })
+export function sendMessage(message) {
+    // const username = store.getState().username
+    socket.emit("new message", message)
 }
 
-socket.on('new message', message => {
-
+export function addMessage(message) {
     store.dispatch({
-        type: "ADD_MESSAGE",
+        type: 'ADD_MESSAGE',
         payload: message
     })
-})
+}
+
+// export function createUsername(username) {
+//     store.dispatch({
+//         type: 'SET_USERNAME',
+//         payload: username
+//     })
+// }

@@ -1,6 +1,5 @@
 const initialState = {
-  messages: [],
-  username:""
+  messages: []
 }
 
 export default function (state = initialState, action) {

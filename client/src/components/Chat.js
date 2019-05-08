@@ -1,30 +1,32 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import Form from './Form'
-import Messages from './Message'
-import Username from './Username'
+import React, { useEffect } from 'react'
+import { connect } from "../actions/actions"
+import ChatArea from './ChatArea'
+import ChannelList from './ChannelList'
+// import Form from './Form'
+// import Messages from './Message'
+// import Username from './Username'
 
-const Chat = (props) => {
+const Chat = props => {
+
+    useEffect(() => {
+        connect()
+    }, [])
+
+    // function logout() {
+    //     signout()
+    //     props.history.push("/login")
+    // }
+    
+    
     return (
-        <div>
-            {
-                props.username ? (
-                <div>
-                    <Form/>
-                    <Messages />
-                </div>
-                ) : (
-                    <Username />
-
-                )}
+        <div className="mainChatRoom">
+            <ChannelList />
+            <ChatArea />
+            {/* <button onClick={logout}>Logout</button> */}
+            <div className="userList"></div>
         </div>
     )
 }
 
-function mapStateToProps(appState) {
-    return {
-        username: appState.username
-    }
-}
 
-export default connect (mapStateToProps) (Chat)
+export default Chat
