@@ -3,11 +3,20 @@ import store from '../store'
 
 let socket = null
 
-export function connect() {
+export function connect(user) {
  socket = io.connect("http://10.68.0.212:3001")
+
+ socket.emit("join", user)
 
  socket.on('new message', (message) => {
      addMessage(message)
+ })
+
+ socket.on("user list", users => {
+     store.dispatch({
+         type: 'LIST_USERS',
+         payload: users
+     })
  })
 }
 

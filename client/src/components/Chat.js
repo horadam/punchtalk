@@ -1,16 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { connect } from "../actions/actions"
 import ChatArea from './ChatArea'
 import ChannelList from './ChannelList'
-// import Form from './Form'
-// import Messages from './Message'
-// import Username from './Username'
+import { AuthContext } from "../lib/auth"
+import UserList from './UserList'
+
 
 const Chat = props => {
+    const { user } = useContext(AuthContext)
 
     useEffect(() => {
-        connect()
-    }, [])
+        connect(user)
+    }, [user])
 
     // function logout() {
     //     signout()
@@ -23,7 +24,7 @@ const Chat = props => {
             <ChannelList />
             <ChatArea />
             {/* <button onClick={logout}>Logout</button> */}
-            <div className="userList"></div>
+            <UserList />
         </div>
     )
 }

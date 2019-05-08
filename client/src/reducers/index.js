@@ -1,5 +1,6 @@
 const initialState = {
-  messages: []
+  messages: [],
+  users: []
 }
 
 export default function (state = initialState, action) {
@@ -7,8 +8,9 @@ export default function (state = initialState, action) {
     case 'ADD_MESSAGE':
     return {...state, messages: [...state.messages, action.payload]}
 
-    case "SET_USERNAME":
-    return {...state, username: action.payload}
+    case "LIST_USERS":
+    return {...state, users: action.payload}
+    
     default:
       return state
   }
