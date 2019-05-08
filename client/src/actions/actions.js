@@ -21,7 +21,6 @@ export function connect(user) {
 }
 
 export function sendMessage(message) {
-    // const username = store.getState().username
     socket.emit("new message", message)
 }
 
@@ -31,10 +30,3 @@ export function addMessage(message) {
         payload: message
     })
 }
-
-// export function createUsername(username) {
-//     store.dispatch({
-//         type: 'SET_USERNAME',
-//         payload: username
-//     })
-// }
